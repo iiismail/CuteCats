@@ -2,10 +2,10 @@
 var colors = Object.values(allColors())
 
 var defaultDNA = {
-    "headcolor" : 10,
-    "mouthColor" : 13,
-    "eyesColor" : 96,
-    "earsColor" : 10,
+    "facecolor" : 10,
+    "earColor" : 13,
+    "bodyColor" : 96,
+    "tailColor" : 10,
     //Cattributes
     "eyesShape" : 1,
     "decorationPattern" : 1,
@@ -17,17 +17,17 @@ var defaultDNA = {
 
 // when page load
 $( document ).ready(function() {
-  $('#dnabody').html(defaultDNA.headColor);
-  $('#dnamouth').html(defaultDNA.mouthColor);
-  $('#dnaeyes').html(defaultDNA.eyesColor);
-  $('#dnaears').html(defaultDNA.earsColor);
+  $('#dnabody').html(defaultDNA.facecolor);
+  $('#dnamouth').html(defaultDNA.earColor);
+  $('#dnaeyes').html(defaultDNA.bodyColor);
+  $('#dnaears').html(defaultDNA.tailColor);
     
-//   $('#dnashape').html(defaultDNA.eyesShape)
-//   $('#dnadecoration').html(defaultDNA.decorationPattern)
-//   $('#dnadecorationMid').html(defaultDNA.decorationMidcolor)
-//   $('#dnadecorationSides').html(defaultDNA.decorationSidescolor)
-//   $('#dnaanimation').html(defaultDNA.animation)
-//   $('#dnaspecial').html(defaultDNA.lastNum)
+  $('#dnashape').html(defaultDNA.eyesShape)
+  $('#dnadecoration').html(defaultDNA.decorationPattern)
+  $('#dnadecorationMid').html(defaultDNA.decorationMidcolor)
+  $('#dnadecorationSides').html(defaultDNA.decorationSidescolor)
+  $('#dnaanimation').html(defaultDNA.animation)
+  $('#dnaspecial').html(defaultDNA.lastNum)
 
   renderCat(defaultDNA)
 });
@@ -54,7 +54,22 @@ function renderCat(dna){
 }
 
 // Changing cat colors
+$('#facecolor').change(()=>{
+    var colorVal = $('#facecolor').val()
+    faceColor(colors[colorVal],colorVal)
+})
+
+$('#earcolor').change(()=>{
+  var colorVal = $('#earcolor').val()
+  earColor(colors[colorVal],colorVal)
+})
+
 $('#bodycolor').change(()=>{
-    var colorVal = $('#bodycolor').val()
-    headColor(colors[colorVal],colorVal)
+  var colorVal = $('#bodycolor').val()
+  bodyColor(colors[colorVal],colorVal)
+})
+
+$('#tailcolor').change(()=>{
+  var colorVal = $('#tailcolor').val()
+  tailColor(colors[colorVal],colorVal)
 })
